@@ -23,13 +23,24 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	Starter dependencies needed to setup a basic web security project
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+//	LOMBOK dependencies
 	compileOnly 'org.projectlombok:lombok'
-	implementation 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+//	H2 and JPA dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//	implementation 'com.h2database:h2'
+
+//	LDAP Dependencies
+	implementation 'com.unboundid:unboundid-ldapsdk'
+	implementation 'org.springframework.ldap:spring-ldap-core'
+	implementation 'org.springframework.security:spring-security-ldap'
+
+//	Test dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
