@@ -1,4 +1,4 @@
 server:
   port: 8080
 
-spring.profiles.active: ldap
+spring.profiles.active: jwt,h2,h2-data-seed

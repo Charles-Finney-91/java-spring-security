@@ -21,16 +21,6 @@ public class JpaSecConfig {
     @Autowired
     MyUserRepo myUserRepo;
 
-    @Autowired
-    public void insertData(){
-        myUserRepo.saveAllAndFlush(
-                List.of(
-                        new MyUser("user", "pass", "ROLE_USER", (byte) 1),
-                        new MyUser("admin", "pass", "ROLE_ADMIN", (byte) 1)
-                )
-        );
-    }
-
     @Bean
     public UserDetailsService userDetailsService(){
         return username -> {
@@ -48,20 +38,5 @@ public class JpaSecConfig {
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults()).build();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new PasswordEncoder() {
-            @Override
-            public String encode(CharSequence rawPassword) {
-                return rawPassword.toString();
-            }
-
-            @Override
-            public boolean matches(CharSequence rawPassword, String encodedPassword) {
-                return rawPassword.equals(encodedPassword);
-            }
-        };
     }
 }
