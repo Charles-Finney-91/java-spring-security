@@ -1,4 +1,4 @@
 server:
   port: 8080
 
-spring.profiles.active: jwt,h2,h2-data-seed
+spring.profiles.active: oauth2-sso,oauth2-sso-facebook

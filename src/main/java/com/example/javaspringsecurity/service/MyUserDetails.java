@@ -1,4 +1,4 @@
-package com.example.javaspringsecurity.configs;
+package com.example.javaspringsecurity.service;
 
 import com.example.javaspringsecurity.entities.MyUser;
 import lombok.AllArgsConstructor;
